@@ -1,12 +1,12 @@
-import React from "react";
-import Link from "next/link";
-import NavbarTwo from "@/components/Layout/NavbarTwo";
-import ServicesDetailsContent from "@/components/Services/ServicesDetailsContent";
-import ContactForm from "@/components/Common/ContactForm";
-import ServiceSlider from "@/components/Services/ServiceSlider";
 import CTO from "@/components/Common/CTO";
+import ContactForm from "@/components/Common/ContactForm";
 import Footer from "@/components/Layout/Footer";
+import NavbarTwo from "@/components/Layout/NavbarTwo";
+import ServiceSlider from "@/components/Services/ServiceSlider";
+import ServicesDetailsContent from "@/components/Services/ServicesDetailsContent";
+import ServicesProducts from "@/components/Services/ServicesProducts";
 import baseApiUrl from "@/utils/baseApiUrl";
+import Link from "next/link";
 
 const ServicesDetails = ({ service: { data } }) => {
   return (
@@ -40,6 +40,7 @@ const ServicesDetails = ({ service: { data } }) => {
 
       <ServicesDetailsContent {...data[0]} />
 
+      <ServicesProducts {...data[0]} />
       <ContactForm />
 
       <div className="radius-0">
