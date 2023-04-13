@@ -1,15 +1,14 @@
-import React from "react";
-import Link from "next/link";
-import axios from "axios";
 import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
+import axios from "axios";
+import Link from "next/link";
+import React from "react";
 
 const Skills = () => {
   const [skill, setSkill] = React.useState();
   React.useEffect(() => {
     const getSkill = async () => {
-      const response = await axios.get(
-        `${baseApiUrl}/api/skill?populate=*`
-      );
+      const response = await axios.get(`${baseApiUrl}/api/skill?populate=*`);
       setSkill(response.data);
       // console.log(response.data);
     };
@@ -26,7 +25,7 @@ const Skills = () => {
                   <span>{skill.data.attributes.subTitle}</span>
                   <h3>{skill.data.attributes.title}</h3>
                 </div>
-  
+
                 <div
                   className="skill-bar"
                   data-aos="fade-up"
@@ -35,21 +34,21 @@ const Skills = () => {
                   data-aos-once="true"
                 >
                   <h5 className="progress-title">
-                    Software Development 
+                    Software Development
                     <span className="float-end">92%</span>
                   </h5>
                   <div className="progress border-3e019a">
                     <div
                       className="progress-bar bg-3e019a"
                       role="progressbar"
-                      style={{ width: '92%' }}
+                      style={{ width: "92%" }}
                       aria-valuenow="92"
                       aria-valuemin="0"
                       aria-valuemax="100"
                     ></div>
                   </div>
                 </div>
-              
+
                 <div
                   className="skill-bar"
                   data-aos="fade-up"
@@ -65,14 +64,14 @@ const Skills = () => {
                     <div
                       className="progress-bar bg-D5158F"
                       role="progressbar"
-                      style={{ width: '80%' }}
+                      style={{ width: "80%" }}
                       aria-valuenow="80"
                       aria-valuemin="0"
                       aria-valuemax="100"
                     ></div>
                   </div>
                 </div>
-              
+
                 <div
                   className="skill-bar"
                   data-aos="fade-up"
@@ -88,14 +87,14 @@ const Skills = () => {
                     <div
                       className="progress-bar bg-feb302"
                       role="progressbar"
-                      style={{ width: '70%' }}
+                      style={{ width: "70%" }}
                       aria-valuenow="70"
                       aria-valuemin="0"
                       aria-valuemax="100"
                     ></div>
                   </div>
                 </div>
-              
+
                 <div
                   className="skill-bar"
                   data-aos="fade-up"
@@ -111,7 +110,7 @@ const Skills = () => {
                     <div
                       className="progress-bar bg-A66BFF"
                       role="progressbar"
-                      style={{ width: '45%' }}
+                      style={{ width: "45%" }}
                       aria-valuenow="45"
                       aria-valuemin="0"
                       aria-valuemax="100"
@@ -119,13 +118,21 @@ const Skills = () => {
                   </div>
                 </div>
 
-                <div className="skill-bar-btn" data-aos="fade-up" data-aos-delay="90" data-aos-duration="900" data-aos-once="true">
+                <div
+                  className="skill-bar-btn"
+                  data-aos="fade-up"
+                  data-aos-delay="90"
+                  data-aos-duration="900"
+                  data-aos-once="true"
+                >
                   <Link href={skill.data.attributes.btnLink}>
-                    <a className="default-btn">{skill.data.attributes.btnText}</a>
+                    <a className="default-btn">
+                      {skill.data.attributes.btnText}
+                    </a>
                   </Link>
                 </div>
               </div>
-  
+
               <div className="col-lg-6 col-md-12">
                 <div
                   className="skill-image"
@@ -134,9 +141,14 @@ const Skills = () => {
                   data-aos-duration="800"
                   data-aos-once="true"
                 >
-                  <img 
-                    src={skill.data.attributes.image.data.attributes.url}
-                    alt={skill.data.attributes.image.data.attributes.alternativeText}
+                  <img
+                    src={parseImagesUrls(
+                      skill.data.attributes.image.data.attributes.url
+                    )}
+                    alt={
+                      skill.data.attributes.image.data.attributes
+                        .alternativeText
+                    }
                   />
 
                   <div className="skill-shape-1">

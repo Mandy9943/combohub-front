@@ -1,3 +1,5 @@
+import baseApiUrl from "./baseApiUrl";
+
 export const urls = [
   {
     title: "Home",
@@ -28,3 +30,13 @@ export const urls = [
     path: "/contact",
   },
 ];
+
+export const parseImagesUrls = (url) => {
+  let finalUrl = url;
+  if (url.startsWith("http")) {
+    finalUrl = url;
+  } else {
+    finalUrl = `${baseApiUrl}${url}`;
+  }
+  return finalUrl;
+};

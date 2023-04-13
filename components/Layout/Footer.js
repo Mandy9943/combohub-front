@@ -1,4 +1,5 @@
 import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
 import axios from "axios";
 import Link from "next/link";
 import React from "react";
@@ -35,9 +36,9 @@ const Footer = () => {
                     <Link href="/">
                       <a className="navbar-brand">
                         <img
-                          src={
+                          src={parseImagesUrls(
                             logo.data.attributes.whiteLogo.data.attributes.url
-                          }
+                          )}
                           alt={
                             logo.data.attributes.whiteLogo.data.attributes
                               .alternativeText

@@ -1,20 +1,21 @@
-import React from 'react'
-import axios from 'axios'
-import baseApiUrl from '@/utils/baseApiUrl'
-import ReactMarkdown from 'react-markdown'
+import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
+import axios from "axios";
+import React from "react";
+import ReactMarkdown from "react-markdown";
 
 const WhyChooseUs = () => {
-  const [whyChooseUs, setWhyChooseUs] = React.useState()
+  const [whyChooseUs, setWhyChooseUs] = React.useState();
   React.useEffect(() => {
     const getWhyChooseUs = async () => {
       const response = await axios.get(
-        `${baseApiUrl}/api/why-choose-us?populate=reason.image`,
-      )
-      setWhyChooseUs(response.data)
+        `${baseApiUrl}/api/why-choose-us?populate=reason.image`
+      );
+      setWhyChooseUs(response.data);
       // console.log(response.data);
-    }
-    getWhyChooseUs()
-  }, [])
+    };
+    getWhyChooseUs();
+  }, []);
   return (
     <>
       {whyChooseUs && (
@@ -40,7 +41,7 @@ const WhyChooseUs = () => {
                   >
                     <div className="choose-image">
                       <img
-                        src={info.image.data.attributes.url}
+                        src={parseImagesUrls(info.image.data.attributes.url)}
                         alt={info.image.data.attributes.alternativeText}
                       />
                     </div>
@@ -64,7 +65,7 @@ const WhyChooseUs = () => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default WhyChooseUs
+export default WhyChooseUs;

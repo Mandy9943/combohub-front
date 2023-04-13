@@ -1,21 +1,22 @@
-import React from 'react'
-import Link from 'next/link'
-import axios from 'axios'
-import baseApiUrl from '@/utils/baseApiUrl'
-import ReactMarkdown from 'react-markdown'
+import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
+import axios from "axios";
+import Link from "next/link";
+import React from "react";
+import ReactMarkdown from "react-markdown";
 
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = React.useState()
+  const [testimonials, setTestimonials] = React.useState();
   React.useEffect(() => {
     const getTestimonials = async () => {
       const response = await axios.get(
-        `${baseApiUrl}/api/testimonials-style-1?populate=item.image`,
-      )
-      setTestimonials(response.data)
+        `${baseApiUrl}/api/testimonials-style-1?populate=item.image`
+      );
+      setTestimonials(response.data);
       // console.log(response.data);
-    }
-    getTestimonials()
-  }, [])
+    };
+    getTestimonials();
+  }, []);
   return (
     <>
       {testimonials && (
@@ -57,7 +58,7 @@ const Testimonials = () => {
                   {testimonials.data.attributes.item.slice(0, 3).map((info) => (
                     <div className="item-box" key={info.id}>
                       <img
-                        src={info.image.data.attributes.url}
+                        src={parseImagesUrls(info.image.data.attributes.url)}
                         className="rounded-circle"
                         alt={info.image.data.attributes.alternativeText}
                       />
@@ -81,7 +82,7 @@ const Testimonials = () => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;

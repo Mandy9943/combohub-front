@@ -1,4 +1,5 @@
 import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
 import axios from "axios";
 import Link from "next/link";
 import React from "react";
@@ -61,7 +62,9 @@ const Article = () => {
                           <Link href={`/blog/${blog.attributes.slug}`}>
                             <a>
                               <img
-                                src={blog.attributes.image.data.attributes.url}
+                                src={parseImagesUrls(
+                                  blog.attributes.image.data.attributes.url
+                                )}
                                 alt={
                                   blog.attributes.image.data.attributes
                                     .alternativeText

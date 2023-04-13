@@ -1,30 +1,30 @@
-import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { EffectFade, Pagination } from 'swiper'
-import { Autoplay } from 'swiper'
-import Link from 'next/link'
-import axios from 'axios'
-import baseApiUrl from '@/utils/baseApiUrl'
+import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
+import axios from "axios";
+import Link from "next/link";
+import React from "react";
+import { Autoplay, EffectFade, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const HeroSlider = () => {
-  const [heroSlider, setHeroSlider] = React.useState()
+  const [heroSlider, setHeroSlider] = React.useState();
   React.useEffect(() => {
     const getHeroSlider = async () => {
       const response = await axios.get(
-        `${baseApiUrl}/api/hero-slider-home-1?populate=sliderITem.image`,
-      )
-      setHeroSlider(response.data)
+        `${baseApiUrl}/api/hero-slider-home-1?populate=sliderITem.image`
+      );
+      setHeroSlider(response.data);
       // console.log(response.data)
-    }
-    getHeroSlider()
-  }, [])
+    };
+    getHeroSlider();
+  }, []);
   return (
     <>
       {heroSlider && (
         <div className="main-slides-area">
           <Swiper
             spaceBetween={0}
-            effect={'fade'}
+            effect={"fade"}
             pagination={{
               clickable: true,
             }}
@@ -90,7 +90,9 @@ const HeroSlider = () => {
                       >
                         <div className="main-slides-image">
                           <img
-                            src={item.image.data.attributes.url}
+                            src={parseImagesUrls(
+                              item.image.data.attributes.url
+                            )}
                             alt={item.image.data.attributes.alternativeText}
                           />
                         </div>
@@ -121,7 +123,7 @@ const HeroSlider = () => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default HeroSlider
+export default HeroSlider;

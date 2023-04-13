@@ -1,18 +1,19 @@
-import React from 'react'
-import Link from 'next/link'
-import axios from 'axios'
-import baseApiUrl from '@/utils/baseApiUrl'
+import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
+import axios from "axios";
+import Link from "next/link";
+import React from "react";
 
 const BlogGrid = () => {
-  const [blogs, setBlogs] = React.useState()
+  const [blogs, setBlogs] = React.useState();
   React.useEffect(() => {
     const getBlogs = async () => {
-      const response = await axios.get(`${baseApiUrl}/api/blogs?populate=*`)
-      setBlogs(response.data)
+      const response = await axios.get(`${baseApiUrl}/api/blogs?populate=*`);
+      setBlogs(response.data);
       // console.log(response.data)
-    }
-    getBlogs()
-  }, [])
+    };
+    getBlogs();
+  }, []);
   return (
     <>
       <div className="blog-area pt-100 pb-100">
@@ -41,9 +42,9 @@ const BlogGrid = () => {
                           <Link href={`/blog/${blog.attributes.slug}`}>
                             <a>
                               <img
-                                src={
+                                src={parseImagesUrls(
                                   blog.attributes.image.data.attributes.url
-                                }
+                                )}
                                 alt={
                                   blog.attributes.image.data.attributes
                                     .alternativeText
@@ -58,14 +59,10 @@ const BlogGrid = () => {
                           <div className="date">{blog.attributes.date}</div>
                           <h3>
                             <Link href={`/blog/${blog.attributes.slug}`}>
-                              <a>
-                                {blog.attributes.title}
-                              </a>
+                              <a>{blog.attributes.title}</a>
                             </Link>
                           </h3>
-                          <p>
-                            {blog.attributes.shortText}
-                          </p>
+                          <p>{blog.attributes.shortText}</p>
                           <Link href={`/blog/${blog.attributes.slug}`}>
                             <a className="blog-btn">View More</a>
                           </Link>
@@ -84,7 +81,7 @@ const BlogGrid = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default BlogGrid
+export default BlogGrid;

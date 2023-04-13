@@ -1,21 +1,21 @@
+import baseApiUrl from "@/utils/baseApiUrl";
+import axios from "axios";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
-import axios from 'axios'
-import baseApiUrl from '@/utils/baseApiUrl'
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Partners = () => {
-  const [partnerSlider, setPartnerSlider] = React.useState()
+  const [partnerSlider, setPartnerSlider] = React.useState();
   React.useEffect(() => {
     const getPartnerSlider = async () => {
       const response = await axios.get(
-        `${baseApiUrl}/api/partner?populate=partnerItem.image`,
-      )
-      setPartnerSlider(response.data)
+        `${baseApiUrl}/api/partner?populate=partnerItem.image`
+      );
+      setPartnerSlider(response.data);
       // console.log(response.data)
-    }
-    getPartnerSlider()
-  }, [])
+    };
+    getPartnerSlider();
+  }, []);
   return (
     <>
       {partnerSlider && (
@@ -49,7 +49,7 @@ const Partners = () => {
                 <SwiperSlide key={item.id}>
                   <div className="partner-card">
                     <a href={item.link} target="_blank" rel="noreferrer">
-                      <img 
+                      <img
                         src={item.image.data.attributes.url}
                         alt={item.image.data.attributes.alternativeText}
                       />

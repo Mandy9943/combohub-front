@@ -1,18 +1,19 @@
-import React from "react";
+import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
+import axios from "axios";
 import Link from "next/link";
-import axios from 'axios'
-import baseApiUrl from '@/utils/baseApiUrl'
+import React from "react";
 
 const AllServicesCardStyle2 = () => {
-  const [services, setServices] = React.useState()
+  const [services, setServices] = React.useState();
   React.useEffect(() => {
     const getServices = async () => {
-      const response = await axios.get(`${baseApiUrl}/api/services?populate=*`)
-      setServices(response.data)
+      const response = await axios.get(`${baseApiUrl}/api/services?populate=*`);
+      setServices(response.data);
       // console.log(response.data)
-    }
-    getServices()
-  }, [])
+    };
+    getServices();
+  }, []);
   return (
     <>
       <div className="services-area pt-100 pb-75">
@@ -37,9 +38,9 @@ const AllServicesCardStyle2 = () => {
                       <Link href={`/services/${service.attributes.slug}`}>
                         <a>
                           <img
-                            src={
+                            src={parseImagesUrls(
                               service.attributes.image.data.attributes.url
-                            }
+                            )}
                             alt={
                               service.attributes.image.data.attributes
                                 .alternativeText

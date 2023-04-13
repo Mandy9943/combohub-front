@@ -1,18 +1,19 @@
-import React from "react";
+import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
+import axios from "axios";
 import Link from "next/link";
-import axios from 'axios'
-import baseApiUrl from '@/utils/baseApiUrl'
+import React from "react";
 
 const ProjectsCard = () => {
-  const [projects, setProjects] = React.useState()
+  const [projects, setProjects] = React.useState();
   React.useEffect(() => {
     const getProjects = async () => {
-      const response = await axios.get(`${baseApiUrl}/api/projects?populate=*`)
-      setProjects(response.data)
+      const response = await axios.get(`${baseApiUrl}/api/projects?populate=*`);
+      setProjects(response.data);
       // console.log(response.data)
-    }
-    getProjects()
-  }, [])
+    };
+    getProjects();
+  }, []);
   return (
     <>
       {projects && (
@@ -33,9 +34,9 @@ const ProjectsCard = () => {
                       <Link href={`/projects/${project.attributes.slug}`}>
                         <a>
                           <img
-                            src={
+                            src={parseImagesUrls(
                               project.attributes.image.data.attributes.url
-                            }
+                            )}
                             alt={
                               project.attributes.image.data.attributes
                                 .alternativeText
@@ -51,7 +52,9 @@ const ProjectsCard = () => {
                         </Link>
                       </h3>
                       <Link href={`/projects/${project.attributes.slug}`}>
-                        <a className="projects-btn">{project.attributes.btnText}</a>
+                        <a className="projects-btn">
+                          {project.attributes.btnText}
+                        </a>
                       </Link>
                     </div>
                   </div>

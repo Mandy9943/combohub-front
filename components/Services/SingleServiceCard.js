@@ -1,3 +1,4 @@
+import { parseImagesUrls } from "@/utils/urls";
 import { Box, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +14,9 @@ const SingleServiceCard = ({ service }) => {
               layout="responsive"
               width={service.attributes.image.data.attributes.width}
               height={service.attributes.image.data.attributes.height}
-              src={service.attributes.image.data.attributes.url}
+              src={parseImagesUrls(
+                service.attributes.image.data.attributes.url
+              )}
               alt={service.attributes.image.data.attributes.alternativeText}
             />
           </a>

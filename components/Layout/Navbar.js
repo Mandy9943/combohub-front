@@ -1,6 +1,6 @@
 import Link from "@/utils/ActiveLink";
 import baseApiUrl from "@/utils/baseApiUrl";
-import { urls } from "@/utils/urls";
+import { parseImagesUrls, urls } from "@/utils/urls";
 import axios from "axios";
 import React, { useState } from "react";
 
@@ -65,7 +65,11 @@ const Navbar = () => {
                   <Link href="/">
                     <a className="navbar-brand">
                       <img
-                        src={logo.data.attributes.whiteLogo.data.attributes.url}
+                        src={parseImagesUrls(
+                          parseImagesUrls(
+                            logo.data.attributes.whiteLogo.data.attributes.url
+                          )
+                        )}
                         alt={
                           logo.data.attributes.whiteLogo.data.attributes
                             .alternativeText

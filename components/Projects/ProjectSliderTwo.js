@@ -1,20 +1,21 @@
-import React from "react";
+import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
+import axios from "axios";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React from "react";
 import { Autoplay, Pagination } from "swiper";
-import axios from 'axios'
-import baseApiUrl from '@/utils/baseApiUrl'
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const ProjectSliderTwo = () => {
-  const [projects, setProjects] = React.useState()
+  const [projects, setProjects] = React.useState();
   React.useEffect(() => {
     const getProjects = async () => {
-      const response = await axios.get(`${baseApiUrl}/api/projects?populate=*`)
-      setProjects(response.data)
+      const response = await axios.get(`${baseApiUrl}/api/projects?populate=*`);
+      setProjects(response.data);
       // console.log(response.data)
-    }
-    getProjects()
-  }, [])
+    };
+    getProjects();
+  }, []);
   return (
     <>
       <div className="projects-area style-two-area ptb-100">
@@ -72,9 +73,9 @@ const ProjectSliderTwo = () => {
                           <Link href={`/projects/${project.attributes.slug}`}>
                             <a>
                               <img
-                                src={
+                                src={parseImagesUrls(
                                   project.attributes.image.data.attributes.url
-                                }
+                                )}
                                 alt={
                                   project.attributes.image.data.attributes
                                     .alternativeText
@@ -90,7 +91,9 @@ const ProjectSliderTwo = () => {
                             </Link>
                           </h3>
                           <Link href={`/projects/${project.attributes.slug}`}>
-                            <a className="projects-btn">{project.attributes.btnText}</a>
+                            <a className="projects-btn">
+                              {project.attributes.btnText}
+                            </a>
                           </Link>
                         </div>
                       </div>

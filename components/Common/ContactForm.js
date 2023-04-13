@@ -1,5 +1,6 @@
 import baseApiUrl from "@/utils/baseApiUrl";
 import baseUrl from "@/utils/baseUrl";
+import { parseImagesUrls } from "@/utils/urls";
 import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
@@ -72,7 +73,9 @@ const ContactForm = () => {
               <div className="col-lg-6 col-md-12">
                 <div className="talk-image">
                   <img
-                    src={contactForm.data.attributes.image.data.attributes.url}
+                    src={parseImagesUrls(
+                      contactForm.data.attributes.image.data.attributes.url
+                    )}
                     alt={
                       contactForm.data.attributes.image.data.attributes
                         .alternativeText
