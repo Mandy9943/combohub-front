@@ -1,16 +1,18 @@
-import React from "react";
-import Link from 'next/link';
-import NavbarTwo from "@/components/Layout/NavbarTwo";
 import SingleBlogContent from "@/components/Blog/SingleBlogContent";
 import Footer from "@/components/Layout/Footer";
+import NavbarTwo from "@/components/Layout/NavbarTwo";
 import baseApiUrl from "@/utils/baseApiUrl";
+import Link from "next/link";
 
 const BlogDetails = ({ blogs: { data } }) => {
   return (
     <>
       <NavbarTwo />
 
-      <div className="page-banner-area mt-94" style={{ backgroundImage: `url(/images/page-banner/banner-bg-2.jpg` }}>
+      <div
+        className="page-banner-area mt-94"
+        style={{ backgroundImage: `url(/images/page-banner/banner-bg-2.jpg` }}
+      >
         <div className="container">
           <div
             className="page-banner-content"
@@ -33,7 +35,7 @@ const BlogDetails = ({ blogs: { data } }) => {
       </div>
 
       <SingleBlogContent {...data[0]} />
-  
+
       <Footer />
     </>
   );
@@ -62,7 +64,7 @@ export async function getStaticProps({ params }) {
   // will receive `blogs` as a prop at build time
   return {
     props: {
-        blogs,
+      blogs,
     },
   };
 }

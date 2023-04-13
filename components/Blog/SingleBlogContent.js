@@ -1,17 +1,17 @@
-import React from 'react'
+import { parseImagesUrls } from "@/utils/urls";
 import ReactMarkdown from "react-markdown";
 
 const SingleBlogContent = ({
-    attributes: {
-      date,
-      image: {
-        data: {
-          attributes: { url: imageUrl },
-        },
+  attributes: {
+    date,
+    image: {
+      data: {
+        attributes: { url: imageUrl },
       },
-      blogDetailsText,
     },
-  }) => {
+    blogDetailsText,
+  },
+}) => {
   return (
     <>
       <div className="blog-details-area pt-100 pb-100">
@@ -20,10 +20,7 @@ const SingleBlogContent = ({
             <div className="col-lg-8 col-md-12">
               <div className="blog-details-desc">
                 <div className="article-image">
-                  <img
-                    src={imageUrl}
-                    alt="image"
-                  />
+                  <img src={parseImagesUrls(imageUrl)} alt="image" />
                 </div>
 
                 <div className="article-content">
@@ -33,10 +30,8 @@ const SingleBlogContent = ({
                     </li>
                     <li>{date}</li>
                   </ul>
-                   
-                  <ReactMarkdown>
-                    {blogDetailsText}
-                  </ReactMarkdown>
+
+                  <ReactMarkdown>{blogDetailsText}</ReactMarkdown>
                 </div>
               </div>
             </div>
@@ -44,7 +39,7 @@ const SingleBlogContent = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default SingleBlogContent;

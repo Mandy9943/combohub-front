@@ -1,5 +1,6 @@
 import baseUrl from "@/utils/baseUrl";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const Metas = ({ title, description, image }) => {
   // Default meta tags
