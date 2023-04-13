@@ -55,8 +55,10 @@ const ServicesProducts = ({ attributes: { title, slug } }) => {
             onClear={handleClear}
           />
         </Box>
-        <Box>
-          <Box as="h3">{title}</Box>
+        <Box className="about-content">
+          <Box as="h3">
+            Productos de <b>{title}</b>
+          </Box>
           <Grid templateColumns={"1fr 1fr 1fr"} gap="24px">
             {filterdProducts.map((product) => {
               return (

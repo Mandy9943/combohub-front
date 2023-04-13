@@ -1,7 +1,6 @@
 import Article from "@/components/Common/Article";
-import Partners from "@/components/Common/Partners";
+import CTO from "@/components/Common/CTO";
 import Testimonials from "@/components/Common/Testimonials";
-import WhyChooseUs from "@/components/Common/WhyChooseUs";
 import HeroSlider from "@/components/HomePageDemo1/HeroSlider";
 import WhoWeAre from "@/components/HomePageDemo1/WhoWeAre";
 import Footer from "@/components/Layout/Footer";
@@ -14,16 +13,17 @@ export default function Home() {
       <Navbar />
 
       <HeroSlider />
-
-      <Partners />
+      {/* 
+      <Partners /> */}
 
       <WhoWeAre />
 
       <ServiceSlider />
 
-      <WhyChooseUs />
+      {/* <WhyChooseUs /> */}
 
       <Testimonials />
+      <CTO />
 
       <Article />
 

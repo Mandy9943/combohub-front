@@ -1,7 +1,9 @@
 import { Box } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
+import BuyButton from "../BuyButton/BuyButton";
 
 const ServicesDetailsContent = ({
+  combo,
   attributes: {
     servicesDetailsText,
     image: {
@@ -46,6 +48,7 @@ const ServicesDetailsContent = ({
                 Precio : ${price}
               </Box>
               <ReactMarkdown>{servicesDetailsText}</ReactMarkdown>
+              <BuyButton combo={combo} />
             </div>
           </div>
         </div>

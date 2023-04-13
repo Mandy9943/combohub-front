@@ -1424,8 +1424,7 @@ Services Area CSS
 .services-item:hover .services-image a img {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+
 }
 
 .services-item:hover .services-content h3 a {

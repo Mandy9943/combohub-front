@@ -11,7 +11,7 @@ const ProductCard = ({
   },
 }) => {
   return (
-    <Link href={`/product/${slug}`} passHref>
+    <Link href={`/products/${slug}`} passHref>
       <Flex
         bg="white"
         w="full"

@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SingleServiceCard from "./SingleServiceCard";
 
 const ServiceSlider = () => {
   const [services, setServices] = React.useState();
@@ -39,7 +40,7 @@ const ServiceSlider = () => {
                 </p>
                 <div className="services-section-btn">
                   <Link href="/services/services">
-                    <a className="default-btn">Explore All Services</a>
+                    <a className="default-btn">Explorar todos los combos</a>
                   </Link>
                 </div>
               </div>
@@ -73,36 +74,7 @@ const ServiceSlider = () => {
                 >
                   {services.data.slice(0, 6).map((service) => (
                     <SwiperSlide key={service.id}>
-                      <div className="services-item">
-                        <div className="services-image">
-                          <Link href={`/services/${service.attributes.slug}`}>
-                            <a>
-                              <img
-                                src={
-                                  service.attributes.image.data.attributes.url
-                                }
-                                alt={
-                                  service.attributes.image.data.attributes
-                                    .alternativeText
-                                }
-                              />
-                            </a>
-                          </Link>
-                        </div>
-                        <div className="services-content">
-                          <h3>
-                            <Link href={`/services/${service.attributes.slug}`}>
-                              <a>{service.attributes.title}</a>
-                            </Link>
-                          </h3>
-                          <p>{service.attributes.shortText}</p>
-                          <Link href={`/services/${service.attributes.slug}`}>
-                            <a className="services-btn">
-                              {service.attributes.btnText}
-                            </a>
-                          </Link>
-                        </div>
-                      </div>
+                      <SingleServiceCard service={service} />
                     </SwiperSlide>
                   ))}
                 </Swiper>

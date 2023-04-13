@@ -104,7 +104,7 @@ const Navbar = () => {
                   </ul>
                 </div>
 
-                <div className="others-options d-flex align-items-center">
+                {/* <div className="others-options d-flex align-items-center">
                   <div className="option-item">
                     <i
                       className="search-btn ri-search-line"
@@ -120,7 +120,7 @@ const Navbar = () => {
                       <i className="ri-bar-chart-horizontal-line"></i>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </nav>
             </div>
           </div>

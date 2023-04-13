@@ -1,6 +1,5 @@
 import CTO from "@/components/Common/CTO";
 import ContactForm from "@/components/Common/ContactForm";
-import GoogleMap from "@/components/Common/GoogleMap";
 import Footer from "@/components/Layout/Footer";
 import NavbarTwo from "@/components/Layout/NavbarTwo";
 import Link from "next/link";
@@ -38,8 +37,6 @@ export default function Contact() {
       <CTO />
 
       <ContactForm />
-
-      <GoogleMap />
 
       <Footer />
     </>

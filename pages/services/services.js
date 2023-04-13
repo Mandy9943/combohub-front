@@ -1,3 +1,4 @@
+import CTO from "@/components/Common/CTO";
 import ContactForm from "@/components/Common/ContactForm";
 import KeyFeatures from "@/components/Common/KeyFeatures";
 import Footer from "@/components/Layout/Footer";
@@ -22,23 +23,22 @@ export default function Services() {
             data-aos-duration="500"
             data-aos-once="true"
           >
-            <h2>Services Style One</h2>
+            <h2>Combos</h2>
             <ul>
               <li>
                 <Link href="/">
                   <a>Home</a>
                 </Link>
               </li>
-              <li>Services</li>
+              <li>Combos</li>
             </ul>
           </div>
         </div>
       </div>
-
-      <KeyFeatures />
-
       <AllServicesCard />
 
+      <KeyFeatures />
+      <CTO />
       <ContactForm />
 
       <Footer />

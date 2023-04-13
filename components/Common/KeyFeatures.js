@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 
 const KeyFeatures = () => {
@@ -7,13 +6,14 @@ const KeyFeatures = () => {
       <div className="choose-area pt-100 pb-75">
         <div className="container">
           <div className="section-title">
-            <span>KEY FEATURES</span>
+            <span>Descubre la experiencia ComboHub</span>
             <h2>
-              We Help You To <b>Increase</b> Your Sale Through Solutions
+              Lo que nos hace <b> diferentes</b>
             </h2>
             <p>
-              We are leading technology solutions providing company all over the
-              world doing over 40 years lorem ipsum dolor sit amet.
+              En ComboHub, nos esforzamos por brindarte la mejor experiencia en
+              la compra de combos exclusivos. Aquí te mostramos lo que nos
+              distingue.
             </p>
           </div>
 
@@ -36,12 +36,13 @@ const KeyFeatures = () => {
                 <div className="choose-content">
                   <h3>
                     <Link href="#">
-                      <a>Mobile Apps</a>
+                      <a>Selección de calidad</a>
                     </Link>
                   </h3>
                   <p>
-                    Lorem ipsum dolor sit amet conset sadipscing elitr sed diam
-                    nonumy eirm od tempor invidunt ut labore.
+                    Nuestros expertos seleccionan cuidadosamente cada producto
+                    incluido en nuestros combos, garantizando la mejor calidad y
+                    valor para nuestros clientes.
                   </p>
                 </div>
               </div>
@@ -65,12 +66,13 @@ const KeyFeatures = () => {
                 <div className="choose-content">
                   <h3>
                     <Link href="#">
-                      <a>Branding Strategy</a>
+                      <a>Entrega puntual</a>
                     </Link>
                   </h3>
                   <p>
-                    Lorem ipsum dolor sit amet conset sadipscing elitr sed diam
-                    nonumy eirm od tempor invidunt ut labore.
+                    Nos comprometemos a enviar tus combos de manera eficiente y
+                    puntual, para que puedas disfrutar de tus productos lo más
+                    rápido posible.
                   </p>
                 </div>
               </div>
@@ -94,12 +96,13 @@ const KeyFeatures = () => {
                 <div className="choose-content">
                   <h3>
                     <Link href="#">
-                      <a>Graphic Design</a>
+                      <a>Precios competitivos</a>
                     </Link>
                   </h3>
                   <p>
-                    Lorem ipsum dolor sit amet conset sadipscing elitr sed diam
-                    nonumy eirm od tempor invidunt ut labore.
+                    Nuestro enfoque en la agrupación de productos nos permite
+                    ofrecerte precios altamente competitivos, brindándote un
+                    gran valor por tu dinero.
                   </p>
                 </div>
               </div>
@@ -123,12 +126,13 @@ const KeyFeatures = () => {
                 <div className="choose-content">
                   <h3>
                     <Link href="#">
-                      <a>Search Optimization</a>
+                      <a>Excelente servicio al cliente</a>
                     </Link>
                   </h3>
                   <p>
-                    Lorem ipsum dolor sit amet conset sadipscing elitr sed diam
-                    nonumy eirm od tempor invidunt ut labore.
+                    Nuestro equipo de atención al cliente está aquí para
+                    ayudarte en cada paso del proceso, asegurando una
+                    experiencia de compra placentera y sin problemas.
                   </p>
                 </div>
               </div>

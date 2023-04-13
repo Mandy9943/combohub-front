@@ -165,19 +165,19 @@ const Footer = () => {
                 data-aos-duration="800"
                 data-aos-once="true"
               >
-                <h3>Subscribe Newsletter</h3>
+                <h3>Subscríbete</h3>
 
                 <form className="newsletter-form">
                   <input
                     type="email"
                     className="input-newsletter"
-                    placeholder="Enter your email"
+                    placeholder="Tu correo electrónico"
                     name="EMAIL"
                     required
                   />
 
                   <button type="submit" className="default-btn">
-                    Subscribe
+                    Subscribirse
                   </button>
                 </form>
               </div>

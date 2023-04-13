@@ -110,7 +110,7 @@ const customTheme = extendTheme({
         minHeight: "100vh",
         overflowX: "hidden",
         bg: "#F6F9FC",
-        fontFamily: "inherit",
+        fontFamily: "Jost , sans-serif",
       },
       "*": {
         "&::-webkit-scrollbar": {
