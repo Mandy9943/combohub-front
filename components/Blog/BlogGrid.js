@@ -1,27 +1,19 @@
+import { fetcher } from "@/utils/api";
 import baseApiUrl from "@/utils/baseApiUrl";
 import { parseImagesUrls } from "@/utils/urls";
-import axios from "axios";
 import Link from "next/link";
-import React from "react";
-
+import useSwr from "swr";
 const BlogGrid = () => {
-  const [blogs, setBlogs] = React.useState();
-  React.useEffect(() => {
-    const getBlogs = async () => {
-      const response = await axios.get(`${baseApiUrl}/api/blogs?populate=*`);
-      setBlogs(response.data);
-      // console.log(response.data)
-    };
-    getBlogs();
-  }, []);
+  const { data: blogs } = useSwr(`${baseApiUrl}/api/blogs?populate=*`, fetcher);
+
   return (
     <>
       <div className="blog-area pt-100 pb-100">
         <div className="container">
           <div className="section-title">
-            <span>ARTICLE</span>
+            <span>Mantente actualizado</span>
             <h2>
-              Read Our Blog To Get All Recent Tech <b>News</b>
+              Lee nuestro blog para recibir noticias <b> actualizadas</b>
             </h2>
           </div>
 
@@ -64,7 +56,7 @@ const BlogGrid = () => {
                           </h3>
                           <p>{blog.attributes.shortText}</p>
                           <Link href={`/blog/${blog.attributes.slug}`}>
-                            <a className="blog-btn">View More</a>
+                            <a className="blog-btn">Ver más</a>
                           </Link>
                         </div>
                       </div>

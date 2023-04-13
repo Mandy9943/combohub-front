@@ -1,6 +1,5 @@
+import { fetcher } from "@/utils/api";
 import baseApiUrl from "@/utils/baseApiUrl";
-import axios from "axios";
-import React from "react";
 import {
   Accordion,
   AccordionItem,
@@ -9,19 +8,13 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import ReactMarkdown from "react-markdown";
-
+import useSwr from "swr";
 const FaqContent = () => {
-  const [faq, setFaq] = React.useState();
-  React.useEffect(() => {
-    const getFaq = async () => {
-      const response = await axios.get(
-        `${baseApiUrl}/api/faq?populate=faqList`
-      );
-      setFaq(response.data);
-      // console.log(response.data);
-    };
-    getFaq();
-  }, []);
+  const { data: faq } = useSwr(
+    `${baseApiUrl}/api/faq?populate=faqList`,
+    fetcher
+  );
+
   return (
     <>
       <div className="faq-area ptb-100">

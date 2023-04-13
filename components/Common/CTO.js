@@ -1,19 +1,8 @@
-import React from "react";
-import axios from 'axios'
-import baseApiUrl from '@/utils/baseApiUrl'
-
+import { fetcher } from "@/utils/api";
+import useSwr from "swr";
 const CTO = () => {
-  const [cto, setCto] = React.useState()
-  React.useEffect(() => {
-    const getCto = async () => {
-      const response = await axios.get(
-        `${baseApiUrl}/api/cto?populate=*`,
-      )
-      setCto(response.data)
-      // console.log(response.data);
-    }
-    getCto()
-  }, [])
+  const { data: cto } = useSwr("/api/cto?populate=*", fetcher);
+
   return (
     <>
       {cto && (
@@ -24,11 +13,12 @@ const CTO = () => {
                 <div className="col-lg-3 col-md-6" key={info.id}>
                   <div className="overview-card">
                     <h3>{info.title}</h3>
-                    <span>
-                      {info.text}
-                    </span>
+                    <span>{info.text}</span>
                     <div className="overview-shape">
-                      <img src="/images/overview/overview-shape.png" alt="image" />
+                      <img
+                        src="/images/overview/overview-shape.png"
+                        alt="image"
+                      />
                     </div>
                   </div>
                 </div>

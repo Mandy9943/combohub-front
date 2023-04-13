@@ -1,23 +1,15 @@
-import baseApiUrl from "@/utils/baseApiUrl";
+import { fetcher } from "@/utils/api";
 import { parseImagesUrls } from "@/utils/urls";
-import axios from "axios";
 import Link from "next/link";
-import React from "react";
 import { Autoplay, EffectFade, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import useSwr from "swr";
 const HeroSlider = () => {
-  const [heroSlider, setHeroSlider] = React.useState();
-  React.useEffect(() => {
-    const getHeroSlider = async () => {
-      const response = await axios.get(
-        `${baseApiUrl}/api/hero-slider-home-1?populate=sliderITem.image`
-      );
-      setHeroSlider(response.data);
-      // console.log(response.data)
-    };
-    getHeroSlider();
-  }, []);
+  const { data: heroSlider } = useSwr(
+    "/api/hero-slider-home-1?populate=sliderITem.image",
+    fetcher
+  );
+
   return (
     <>
       {heroSlider && (
@@ -29,11 +21,12 @@ const HeroSlider = () => {
               clickable: true,
             }}
             autoplay={{
-              delay: 6000,
+              delay: 10000,
               disableOnInteraction: true,
             }}
             modules={[EffectFade, Pagination, Autoplay]}
             className="mySwiper home-slides"
+            lazy={true}
           >
             {heroSlider.data.attributes.sliderITem.map((item) => (
               <SwiperSlide key={item.id}>

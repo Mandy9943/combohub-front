@@ -1,10 +1,12 @@
-import baseApiUrl from "@/utils/baseApiUrl";
+import { fetcher } from "@/utils/api";
 import baseUrl from "@/utils/baseUrl";
 import { parseImagesUrls } from "@/utils/urls";
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import useSwr from "swr";
+
 const MySwal = withReactContent(Swal);
 
 const alertContent = () => {
@@ -52,17 +54,7 @@ const ContactForm = () => {
   };
 
   // API
-  const [contactForm, setcontactForm] = React.useState();
-  React.useEffect(() => {
-    const getcontactForm = async () => {
-      const response = await axios.get(
-        `${baseApiUrl}/api/contact-form?populate=*`
-      );
-      setcontactForm(response.data);
-      // console.log(response.data);
-    };
-    getcontactForm();
-  }, []);
+  const { data: contactForm } = useSwr("/api/contact-form?populate=*", fetcher);
 
   return (
     <>

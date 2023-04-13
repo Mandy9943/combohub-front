@@ -1,18 +1,13 @@
+import { fetcher } from "@/utils/api";
 import baseApiUrl from "@/utils/baseApiUrl";
-import axios from "axios";
-import React from "react";
+import useSwr from "swr";
 import SingleServiceCard from "./SingleServiceCard";
-
 const AllServicesCard = () => {
-  const [services, setServices] = React.useState();
-  React.useEffect(() => {
-    const getServices = async () => {
-      const response = await axios.get(`${baseApiUrl}/api/services?populate=*`);
-      setServices(response.data);
-      // console.log(response.data)
-    };
-    getServices();
-  }, []);
+  const { data: services } = useSwr(
+    `${baseApiUrl}/api/services?populate=*`,
+    fetcher
+  );
+
   return (
     <>
       <div className="services-area bg-with-14042C-color rounded-0 ptb-100">

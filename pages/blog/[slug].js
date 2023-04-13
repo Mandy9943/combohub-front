@@ -1,4 +1,6 @@
 import SingleBlogContent from "@/components/Blog/SingleBlogContent";
+import Article from "@/components/Common/Article";
+import CTO from "@/components/Common/CTO";
 import Footer from "@/components/Layout/Footer";
 import NavbarTwo from "@/components/Layout/NavbarTwo";
 import baseApiUrl from "@/utils/baseApiUrl";
@@ -35,7 +37,8 @@ const BlogDetails = ({ blogs: { data } }) => {
       </div>
 
       <SingleBlogContent {...data[0]} />
-
+      <CTO />
+      <Article />
       <Footer />
     </>
   );

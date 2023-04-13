@@ -1,21 +1,13 @@
+import { fetcher } from "@/utils/api";
 import baseApiUrl from "@/utils/baseApiUrl";
 import { parseImagesUrls } from "@/utils/urls";
-import axios from "axios";
 import Link from "next/link";
-import React from "react";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import useSwr from "swr";
 const Article = () => {
-  const [blogs, setBlogs] = React.useState();
-  React.useEffect(() => {
-    const getBlogs = async () => {
-      const response = await axios.get(`${baseApiUrl}/api/blogs?populate=*`);
-      setBlogs(response.data);
-      // console.log(response.data)
-    };
-    getBlogs();
-  }, []);
+  const { data: blogs } = useSwr(`${baseApiUrl}/api/blogs?populate=*`, fetcher);
+
   return (
     <>
       <div className="blog-area pt-100 pb-75">
