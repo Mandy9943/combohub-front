@@ -1,3 +1,4 @@
+import { parseImagesUrls } from "@/utils/urls";
 import { Box } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import BuyButton from "../BuyButton/BuyButton";
@@ -21,7 +22,7 @@ const ServicesDetailsContent = ({
           <div className="col-lg-6 col-md-12">
             <div className="about-image" data-tilt>
               <img
-                src={imageUrl}
+                src={parseImagesUrls(imageUrl)}
                 alt="image"
                 data-aos="fade-down"
                 data-aos-delay="80"

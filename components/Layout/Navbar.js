@@ -52,7 +52,12 @@ const Navbar = () => {
   const handleToggleSidebarModal = () => {
     setActiveSidebarModal(!isActiveSidebarModal);
   };
-
+  if (logo) {
+    console.log(
+      "logo url",
+      parseImagesUrls(logo.data.attributes.whiteLogo.data.attributes.url)
+    );
+  }
   return (
     <>
       {/* Start Header Area */}

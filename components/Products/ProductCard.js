@@ -1,3 +1,4 @@
+import { parseImagesUrls } from "@/utils/urls";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,7 +27,7 @@ const ProductCard = ({
           <Image
             width={"500px"}
             height={"500px"}
-            src={imagesData[0].attributes.url}
+            src={parseImagesUrls(imagesData[0].attributes.url)}
             alt="product"
           />
         </Box>

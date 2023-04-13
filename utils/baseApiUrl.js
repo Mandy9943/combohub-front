@@ -1,6 +1,6 @@
 const baseApiUrl =
   process.env.NODE_ENV === "production"
     ? "https://api.combohub.website"
-    : "http://localhost:1337";
+    : "https://api.combohub.website";
 
 export default baseApiUrl;
