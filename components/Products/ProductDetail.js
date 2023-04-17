@@ -8,9 +8,12 @@ import BuyButton from "../BuyButton/BuyButton";
 
 const ProductDetail = ({ product }) => {
   const [currentImage, setCurrentImage] = useState(
-    product.attributes.images.data[0].attributes.url
+    product.attributes.images.data[0].attributes
   );
   const textColor = "gray.400";
+
+  console.log("currentImage", currentImage);
+
   return (
     <Box className=" with-radius ptb-100" bg="blackColor">
       <div className="container">
@@ -26,7 +29,7 @@ const ProductDetail = ({ product }) => {
             >
               <Box
                 w={{ sm: "275px", md: "670px", lg: "450px", xl: "600px" }}
-                h={{ sm: "200px", md: "500px", lg: "330px", xl: "500px" }}
+                h={{ sm: "200px", md: "500px", lg: "330px", xl: "600px" }}
                 mb="26px"
                 mx={{ sm: "auto", lg: "0px" }}
                 overflow={"hidden"}
@@ -36,9 +39,9 @@ const ProductDetail = ({ product }) => {
                   <Image
                     layout="responsive"
                     alt={product.attributes.title}
-                    src={parseImagesUrls(currentImage)}
-                    width={500}
-                    height={500}
+                    src={parseImagesUrls(currentImage.url)}
+                    width={currentImage.width}
+                    height={currentImage.height}
                   />
                 </Box>
               </Box>
@@ -53,6 +56,8 @@ const ProductDetail = ({ product }) => {
                     key={image.attributes.url}
                     w={{ sm: "36px", md: "90px", lg: "60px" }}
                     h={{ sm: "36px", md: "90px", lg: "60px" }}
+                    overflow={"hidden"}
+                    borderRadius="15px"
                   >
                     <Box
                       borderRadius="15px"
@@ -62,10 +67,10 @@ const ProductDetail = ({ product }) => {
                       <Image
                         src={parseImagesUrls(image.attributes.url)}
                         alt="Preview Imaage"
-                        width={500}
-                        height={500}
+                        width={image.attributes.width}
+                        height={image.attributes.height}
                         layout="responsive"
-                        onClick={(e) => setCurrentImage(image.attributes.url)}
+                        onClick={(e) => setCurrentImage(image.attributes)}
                       />
                     </Box>
                   </Box>
@@ -115,7 +120,7 @@ const ProductDetail = ({ product }) => {
               <Box
                 mb={6}
                 sx={{
-                  p: {
+                  "p,ul,div": {
                     color: textColor,
                   },
                 }}

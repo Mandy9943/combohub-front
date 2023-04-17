@@ -63,7 +63,10 @@ const ServicesProducts = ({ attributes: { title, slug } }) => {
           <Box as="h3">
             Productos de <b>{title}</b>
           </Box>
-          <Grid templateColumns={{ xs: "1fr", lg: "1fr 1fr 1fr" }} gap="24px">
+          <Grid
+            templateColumns={{ xs: "1fr", lg: "1fr 1fr 1fr 1fr" }}
+            gap="24px"
+          >
             {filterdProducts.map((product) => {
               return (
                 <ProductCard key={product.id} attributes={product.attributes} />

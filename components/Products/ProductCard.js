@@ -25,8 +25,8 @@ const ProductCard = ({
       >
         <Box m="10px" borderRadius={"md"} overflow={"hidden"}>
           <Image
-            width={"500px"}
-            height={"500px"}
+            width={400}
+            height={480}
             src={parseImagesUrls(imagesData[0].attributes.url)}
             alt="product"
           />
