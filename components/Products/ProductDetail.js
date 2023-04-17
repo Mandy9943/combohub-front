@@ -1,3 +1,4 @@
+import { parseImagesUrls } from "@/utils/urls";
 import { Badge, Box, Flex, Icon, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -35,7 +36,7 @@ const ProductDetail = ({ product }) => {
                   <Image
                     layout="responsive"
                     alt={product.attributes.title}
-                    src={currentImage}
+                    src={parseImagesUrls(currentImage)}
                     width={500}
                     height={500}
                   />
@@ -59,7 +60,7 @@ const ProductDetail = ({ product }) => {
                       overflow={"hidden"}
                     >
                       <Image
-                        src={image.attributes.url}
+                        src={parseImagesUrls(image.attributes.url)}
                         alt="Preview Imaage"
                         width={500}
                         height={500}
