@@ -61,7 +61,7 @@ export async function getStaticPaths() {
     params: { slug: service.attributes.slug },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {
@@ -72,12 +72,15 @@ export async function getStaticProps({ params }) {
     `${baseApiUrl}/api/services?filters[slug][$eq]=${params.slug}&populate=*`
   );
   const service = await res.json();
+  console.log("service", service);
   // By returning { props: { service } }, the Blog component
   // will receive `service` as a prop at build time
+
   return {
     props: {
       service,
     },
+    revalidate: 30,
   };
 }
 

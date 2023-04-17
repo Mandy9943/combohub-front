@@ -52,7 +52,7 @@ export async function getStaticPaths() {
     params: { slug: blogs.attributes.slug },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {
@@ -69,6 +69,7 @@ export async function getStaticProps({ params }) {
     props: {
       blogs,
     },
+    revalidate: 30,
   };
 }
 
