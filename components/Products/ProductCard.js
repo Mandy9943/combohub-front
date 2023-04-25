@@ -19,24 +19,32 @@ const ProductCard = ({
         flexDir={"column"}
         rounded={"md"}
         _hover={{
-          shadow: "md",
+          shadow: "2xl",
         }}
         as="a"
+        shadow={"xl"}
       >
         <Box m="10px" borderRadius={"md"} overflow={"hidden"}>
-          <Image
-            width={400}
-            height={480}
-            src={parseImagesUrls(imagesData[0].attributes.url)}
-            alt="product"
-          />
+          <Box w="full" height={"200"} position={"relative"}>
+            <Image
+              width={400}
+              height={300}
+              src={parseImagesUrls(imagesData[0].attributes.url)}
+              alt="product"
+              layout="fill"
+              objectFit="cover"
+            />
+          </Box>
         </Box>
         <Flex p="10px" flexDir="column" flex={1}>
-          <Text fontWeight={"semibold"} flex={1}>
-            {title}
+          <Text fontWeight={"semibold"} flex={1} color="black" fontSize={"md"}>
+            {title.split(" ").slice(0, 3).join(" ")}
           </Text>
           <Box>
-            <Text color="danger">Precio estimado : ${estimatedPrice}</Text>
+            <Text color="blackColor" fontWeight={"bold"}>
+              {" "}
+              ≈ ${estimatedPrice}
+            </Text>
           </Box>
         </Flex>
       </Flex>

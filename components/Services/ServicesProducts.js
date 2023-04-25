@@ -52,7 +52,7 @@ const ServicesProducts = ({ attributes: { title, slug } }) => {
         gap="30px"
         mb={20}
       >
-        <Box p="20px" bg="white" height={"400px"} rounded={"md"}>
+        <Box p="20px" bg="white" height={"400px"} rounded={"md"} shadow={"lg"}>
           <ProductTags
             tags={tags}
             onClick={handleClickedTag}
