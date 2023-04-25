@@ -10,6 +10,7 @@ import baseApiUrl from "@/utils/baseApiUrl";
 import Link from "next/link";
 
 const ServicesDetails = ({ service: { data } }) => {
+  console.log("data", data);
   return (
     <>
       <NavbarTwo />

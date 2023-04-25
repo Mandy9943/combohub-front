@@ -3,15 +3,25 @@ import { Box, Center, Flex, Grid } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import useSwr from "swr";
 import ProductCard from "../Products/ProductCard";
-const ServicesProducts = ({ attributes: { title, slug, multiple } }) => {
-  console.log("multiple", multiple);
+
+function getQueryStringArr(products) {
+  return products.data.map(
+    (product, i) => `filters[id][$in][${i}]=${product.id}`
+  );
+}
+
+const ServicesProducts = ({
+  attributes: { title, slug, multiple, products },
+}) => {
+  const productIds = getQueryStringArr(products);
+  const idsQueryString = productIds.join("&");
   const [tags, setTags] = useState([]);
   const [filterdProducts, setFilterdProducts] = useState([]);
 
   // fetch products from strapi-api wich service is certain id
   const { data } = useSwr(
-    slug
-      ? `/api/products?filters[service][slug][$eq]=${slug}&populate=*`
+    products && products.data?.length > 0
+      ? `/api/products?${idsQueryString}&populate=*`
       : null,
     fetcher,
     {
@@ -21,16 +31,20 @@ const ServicesProducts = ({ attributes: { title, slug, multiple } }) => {
     }
   );
   useEffect(() => {
-    const tagAttributes = data.data.flatMap((product) => {
-      return product.attributes.tags;
-    });
-    const tagsData = tagAttributes.flatMap((tag) => tag.data);
-    const allTags = tagsData.map((tag) => tag.attributes.name);
-    const tags = [...new Set(allTags)];
-    setTags(tags);
+    if (data.data.length > 0) {
+      const tagAttributes = data.data.flatMap((product) => {
+        return product.attributes.tags;
+      });
+      const tagsData = tagAttributes.flatMap((tag) => tag.data);
+      const allTags = tagsData.map((tag) => tag.attributes.name);
+      const tags = [...new Set(allTags)];
+      setTags(tags);
+    }
   }, [data]);
   useEffect(() => {
-    setFilterdProducts(data.data);
+    if (data.data.length > 0) {
+      setFilterdProducts(data.data);
+    }
   }, [data]);
 
   const handleClickedTag = (tag) => {
