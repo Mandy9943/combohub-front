@@ -36,7 +36,11 @@ const SingleServiceCard = ({ service }) => {
           </Box>
         </Flex>
 
-        <p>{service.attributes.shortText}</p>
+        <p>
+          {service.attributes.shortText.length > 149
+            ? service.attributes.shortText.slice(0, 150) + " ..."
+            : service.attributes.shortText}
+        </p>
         <Flex flexDir={"column"} mt="5">
           <BuyButton combo={service} />
           <Link href={`/services/${service.attributes.slug}`}>

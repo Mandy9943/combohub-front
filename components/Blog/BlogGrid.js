@@ -1,6 +1,7 @@
 import { fetcher } from "@/utils/api";
 import baseApiUrl from "@/utils/baseApiUrl";
 import { parseImagesUrls } from "@/utils/urls";
+import Image from "next/image";
 import Link from "next/link";
 import useSwr from "swr";
 const BlogGrid = () => {
@@ -33,13 +34,20 @@ const BlogGrid = () => {
                         <div className="blog-image">
                           <Link href={`/blog/${blog.attributes.slug}`}>
                             <a>
-                              <img
+                              <Image
                                 src={parseImagesUrls(
                                   blog.attributes.image.data.attributes.url
                                 )}
                                 alt={
                                   blog.attributes.image.data.attributes
                                     .alternativeText
+                                }
+                                layout="responsive"
+                                width={
+                                  blog.attributes.image.data.attributes.width
+                                }
+                                height={
+                                  blog.attributes.image.data.attributes.height
                                 }
                               />
                             </a>
@@ -51,10 +59,18 @@ const BlogGrid = () => {
                           <div className="date">{blog.attributes.date}</div>
                           <h3>
                             <Link href={`/blog/${blog.attributes.slug}`}>
-                              <a>{blog.attributes.title}</a>
+                              <a>
+                                {blog.attributes.title.length > 44
+                                  ? blog.attributes.title.slice(0, 45) + " ..."
+                                  : blog.attributes.title}
+                              </a>
                             </Link>
                           </h3>
-                          <p>{blog.attributes.shortText}</p>
+                          <p>
+                            {blog.attributes.shortText.length > 129
+                              ? blog.attributes.shortText.slice(0, 130) + " ..."
+                              : blog.attributes.shortText}
+                          </p>
                           <Link href={`/blog/${blog.attributes.slug}`}>
                             <a className="blog-btn">Ver más</a>
                           </Link>
@@ -66,10 +82,6 @@ const BlogGrid = () => {
               ))}
             </div>
           )}
-        </div>
-
-        <div className="blog-shape-1">
-          <img src="/images/blog/blog-shape-1.png" alt="image" />
         </div>
       </div>
     </>
