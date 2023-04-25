@@ -111,6 +111,7 @@ const customTheme = extendTheme({
         overflowX: "hidden",
         bg: "#F6F9FC",
         fontFamily: "Jost , sans-serif",
+        color: "#646464",
       },
       "*": {
         "&::-webkit-scrollbar": {

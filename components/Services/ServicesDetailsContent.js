@@ -1,5 +1,6 @@
 import { parseImagesUrls } from "@/utils/urls";
 import { Box } from "@chakra-ui/react";
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import BuyButton from "../BuyButton/BuyButton";
 
@@ -9,7 +10,7 @@ const ServicesDetailsContent = ({
     servicesDetailsText,
     image: {
       data: {
-        attributes: { url: imageUrl },
+        attributes: { url: imageUrl, width, height },
       },
     },
     price,
@@ -21,7 +22,10 @@ const ServicesDetailsContent = ({
         <div className="row align-items-center">
           <div className="col-lg-6 col-md-12">
             <div className="about-image" data-tilt>
-              <img
+              <Image
+                layout="responsive"
+                width={width}
+                height={height}
                 src={parseImagesUrls(imageUrl)}
                 alt="image"
                 data-aos="fade-down"
