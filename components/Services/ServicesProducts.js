@@ -3,7 +3,8 @@ import { Box, Center, Flex, Grid } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import useSwr from "swr";
 import ProductCard from "../Products/ProductCard";
-const ServicesProducts = ({ attributes: { title, slug } }) => {
+const ServicesProducts = ({ attributes: { title, slug, multiple } }) => {
+  console.log("multiple", multiple);
   const [tags, setTags] = useState([]);
   const [filterdProducts, setFilterdProducts] = useState([]);
 
@@ -68,8 +69,26 @@ const ServicesProducts = ({ attributes: { title, slug } }) => {
             gap="24px"
           >
             {filterdProducts.map((product) => {
+              console.log("product", product);
+              let cantOnCombo = 1;
+              if (
+                multiple &&
+                typeof multiple === "object" &&
+                multiple.length > 0
+              ) {
+                cantOnCombo = multiple.find(
+                  (productM) => productM?.product === product.id
+                )?.count;
+              }
+              if (typeof cantOnCombo !== "number") {
+                cantOnCombo = 1;
+              }
               return (
-                <ProductCard key={product.id} attributes={product.attributes} />
+                <ProductCard
+                  key={product.id}
+                  attributes={product.attributes}
+                  cantOnCombo={cantOnCombo}
+                />
               );
             })}
           </Grid>

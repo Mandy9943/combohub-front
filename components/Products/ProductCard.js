@@ -10,7 +10,10 @@ const ProductCard = ({
     estimatedPrice,
     images: { data: imagesData },
   },
+  cantOnCombo,
 }) => {
+  const price = Number(estimatedPrice) * cantOnCombo;
+
   return (
     <Link href={`/products/${slug}`} passHref>
       <Flex
@@ -20,6 +23,7 @@ const ProductCard = ({
         rounded={"md"}
         _hover={{
           shadow: "2xl",
+          transform: "scale(1.02)",
         }}
         as="a"
         shadow={"xl"}
@@ -40,12 +44,22 @@ const ProductCard = ({
           <Text fontWeight={"semibold"} flex={1} color="black" fontSize={"md"}>
             {title.split(" ").slice(0, 3).join(" ")}
           </Text>
-          <Box>
+          <Flex justifyContent={"space-between"} w="full">
             <Text color="blackColor" fontWeight={"bold"}>
               {" "}
               ≈ ${estimatedPrice}
             </Text>
-          </Box>
+          </Flex>
+          <Flex alignItems={"center"} gap={3}>
+            <Box color="red.800" fontWeight={"bold"}>
+              X {cantOnCombo}
+            </Box>
+
+            <Text color="blackColor" fontWeight={"bold"}>
+              {" "}
+              ≈ ${price}
+            </Text>
+          </Flex>
         </Flex>
       </Flex>
     </Link>
