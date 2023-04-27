@@ -50,7 +50,7 @@ const ServicesDetailsContent = ({
                 fontSize={"2xl"}
                 color="blackColor"
               >
-                Precio : ${price}
+                {/* Precio : ${price} */}
               </Box>
               <ReactMarkdown>{servicesDetailsText}</ReactMarkdown>
               <BuyButton combo={combo} />

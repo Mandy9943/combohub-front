@@ -32,7 +32,7 @@ const SingleServiceCard = ({ service }) => {
 
           <Box color="main" fontWeight={"bold"}>
             {" "}
-            ${service.attributes.price}{" "}
+            {/* ${service.attributes.price}{" "} */}
           </Box>
         </Flex>
 
