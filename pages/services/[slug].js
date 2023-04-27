@@ -7,6 +7,7 @@ import ServiceSlider from "@/components/Services/ServiceSlider";
 import ServicesDetailsContent from "@/components/Services/ServicesDetailsContent";
 import ServicesProducts from "@/components/Services/ServicesProducts";
 import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
 import Link from "next/link";
 
 const ServicesDetails = ({ service: { data } }) => {
@@ -17,7 +18,7 @@ const ServicesDetails = ({ service: { data } }) => {
       <Metas
         description={data[0].attributes.shortText.slice(0, 149)}
         title={"Combo " + data[0].attributes.title}
-        image={data[0].attributes.image.data.attributes.url}
+        image={parseImagesUrls(data[0].attributes.image.data.attributes.url)}
       />
       <div
         className="page-banner-area mt-94"

@@ -5,6 +5,7 @@ import Footer from "@/components/Layout/Footer";
 import NavbarTwo from "@/components/Layout/NavbarTwo";
 import Metas from "@/components/Metas/Metas";
 import baseApiUrl from "@/utils/baseApiUrl";
+import { parseImagesUrls } from "@/utils/urls";
 import Link from "next/link";
 
 const BlogDetails = ({ blogs: { data } }) => {
@@ -13,7 +14,7 @@ const BlogDetails = ({ blogs: { data } }) => {
       <Metas
         description={data[0].attributes.shortText.slice(0, 149)}
         title={data[0].attributes.title.slice(0, 59)}
-        image={data[0].attributes.image.data.attributes.url}
+        image={parseImagesUrls(data[0].attributes.image.data.attributes.url)}
       />
       <NavbarTwo />
 
