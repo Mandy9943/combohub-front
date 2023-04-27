@@ -1,22 +1,15 @@
+import { fetcher } from "@/utils/api";
 import baseApiUrl from "@/utils/baseApiUrl";
 import { parseImagesUrls } from "@/utils/urls";
-import axios from "axios";
 import Link from "next/link";
-import React from "react";
 import ReactMarkdown from "react-markdown";
-
+import useSwr from "swr";
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = React.useState();
-  React.useEffect(() => {
-    const getTestimonials = async () => {
-      const response = await axios.get(
-        `${baseApiUrl}/api/testimonials-style-1?populate=item.image`
-      );
-      setTestimonials(response.data);
-      // console.log(response.data);
-    };
-    getTestimonials();
-  }, []);
+  const { data: testimonials } = useSwr(
+    `${baseApiUrl}/api/testimonials-style-1?populate=item.image`,
+    fetcher
+  );
+
   return (
     <>
       {testimonials && (
@@ -71,13 +64,6 @@ const Testimonials = () => {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="testimonialsbg-shape">
-            <img
-              src="/images/testimonials/testimonials-shape.png"
-              alt="image"
-            />
           </div>
         </div>
       )}
