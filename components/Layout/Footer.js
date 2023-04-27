@@ -53,7 +53,7 @@ const Footer = () => {
                   de combos de moda y estilo. ¡Gracias por elegirnos!
                 </p>
 
-                <ul className="widget-social">
+                {/*  <ul className="widget-social">
                   <li>
                     <a
                       href="https://www.facebook.com/EnvyTheme"
@@ -99,7 +99,7 @@ const Footer = () => {
                       <i className="ri-instagram-line"></i>
                     </a>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
 
@@ -192,17 +192,6 @@ const Footer = () => {
               <p>ComboHub © 2023</p>
             </div>
           </div>
-        </div>
-
-        {/* Shape Images */}
-        <div className="footer-shape-1">
-          <img src="/images/footer/footer-shape-1.png" alt="image" />
-        </div>
-        <div className="footer-shape-2">
-          <img src="/images/footer/footer-shape-2.png" alt="image" />
-        </div>
-        <div className="footer-shape-3">
-          <img src="/images/footer/footer-shape-3.png" alt="image" />
         </div>
       </footer>
     </>
