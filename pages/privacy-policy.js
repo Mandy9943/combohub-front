@@ -53,14 +53,14 @@ export default function PrivacyPolicy() {
             data-aos-duration="500"
             data-aos-once="true"
           >
-            <h2>Privacy Policy</h2>
+            <h2>Política de privacidad</h2>
             <ul>
               <li>
                 <Link href="/">
                   <a>Home</a>
                 </Link>
               </li>
-              <li>Privacy Policy</li>
+              <li>Política de privacidad</li>
             </ul>
           </div>
         </div>
