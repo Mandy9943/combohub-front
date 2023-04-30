@@ -12,3 +12,17 @@ export const axiosInstance = axios.create({
 });
 
 export const fetcher = (url) => axiosInstance.get(url).then((res) => res.data);
+
+export const createShopHubOrder = (
+  clienteName = "",
+  clientePhoneNumber = "",
+  hubOrderData = []
+) => {
+  axiosInstance.post("/api/shophubs?populate=*", {
+    data: {
+      name: clienteName,
+      number: clientePhoneNumber,
+      huborder: hubOrderData,
+    },
+  });
+};

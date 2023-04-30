@@ -19,7 +19,7 @@ import "../styles/responsive.css";
 import ScrollToTop from "@/components/Layout/ScrollToTop";
 import Metas from "@/components/Metas/Metas";
 import { ChakraProvider } from "@chakra-ui/react";
-import customTheme from "styles/chakratheme/theme";
+import customTheme, { customColorModeManager } from "styles/chakratheme/theme";
 
 function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
@@ -29,7 +29,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Metas />
 
-      <ChakraProvider theme={customTheme}>
+      <ChakraProvider
+        theme={customTheme}
+        colorModeManager={customColorModeManager}
+      >
         <Component {...pageProps} />
       </ChakraProvider>
 

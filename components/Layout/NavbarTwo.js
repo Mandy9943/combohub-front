@@ -52,7 +52,15 @@ const NavbarTwo = () => {
   const handleToggleSidebarModal = () => {
     setActiveSidebarModal(!isActiveSidebarModal);
   };
-
+  const renderLink = (link) => {
+    return (
+      <li key={link.path} className="nav-item">
+        <Link href={link.path} activeClassName="active">
+          <a className="nav-link">{link.title}</a>
+        </Link>
+      </li>
+    );
+  };
   return (
     <>
       {/* Start Header Area */}
@@ -97,13 +105,21 @@ const NavbarTwo = () => {
                 <div className={classOne} id="navbarSupportedContent">
                   <ul className="navbar-nav ms-auto">
                     {urls.map((link) => {
-                      return (
-                        <li key={link.path} className="nav-item">
-                          <Link href={link.path} activeClassName="active">
-                            <a className="nav-link">{link.title}</a>
-                          </Link>
-                        </li>
-                      );
+                      if (link.children) {
+                        return (
+                          <li key={link.path} className="nav-item">
+                            <a href="#" className="nav-link">
+                              {link.title}{" "}
+                              <i className="ri-arrow-down-s-line"></i>
+                            </a>
+                            <ul className="dropdown-menu">
+                              {link.children?.map((child) => renderLink(child))}
+                            </ul>
+                          </li>
+                        );
+                      } else {
+                        return renderLink(link);
+                      }
                     })}
                   </ul>
                 </div>

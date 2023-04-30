@@ -6,8 +6,18 @@ export const urls = [
     path: "/",
   },
   {
-    title: "Combos",
-    path: "/services/services",
+    title: "Servicios",
+    path: "/services",
+    children: [
+      {
+        title: "Combos",
+        path: "/services/services",
+      },
+      {
+        title: "Compra Personalizada",
+        path: "/services/shop-hub",
+      },
+    ],
   },
   {
     title: "FAQ",
