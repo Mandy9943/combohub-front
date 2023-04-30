@@ -140,7 +140,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                 }
                 isRequired
               >
-                <FormLabel>Número de teléfono</FormLabel>
+                <FormLabel>Teléfono</FormLabel>
                 <Input
                   type="text"
                   onChange={formik.handleChange}

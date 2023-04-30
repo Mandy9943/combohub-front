@@ -1,4 +1,4 @@
-import { extendTheme, storage } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react";
 
 export const breakpoints = {
   xs: "0px",
@@ -177,7 +177,6 @@ const customTheme = extendTheme({
 export default customTheme;
 
 export const customColorModeManager = {
-  ...storage,
   get: () => "light", // Esto siempre establece el modo de color en "light" (claro)
   set: () => {}, // Deja esta función vacía para evitar que se cambie el modo de color
 };
