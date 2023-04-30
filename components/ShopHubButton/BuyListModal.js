@@ -119,6 +119,8 @@ const BuyListModal = ({ isOpen, onClose }) => {
       }
     }
   }, [formik.values]);
+
+  console.log("formik", formik.values);
   return (
     <Modal onClose={onClose} isOpen={isOpen} bg="red" size={"2xl"}>
       <ModalOverlay background={"rgba(0,0,0,0.7)"} />
@@ -208,7 +210,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                       }
                       isRequired
                     >
-                      <FormLabel>Name</FormLabel>
+                      <FormLabel>Nombre</FormLabel>
                       <Input
                         type="text"
                         onChange={formik.handleChange}
@@ -231,7 +233,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                         type="text"
                         value={formik.values.productsList[index].size}
                         onChange={formik.handleChange}
-                        name={`productsList${index}.size`}
+                        name={`productsList[${index}].size`}
                       />
                       {formik.touched.size && Boolean(formik.errors.size) && (
                         <FormErrorMessage>
@@ -249,7 +251,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                         type="text"
                         value={formik.values.productsList[index].color}
                         onChange={formik.handleChange}
-                        name={`productsList${index}.color`}
+                        name={`productsList[${index}].color`}
                       />
                       {formik.touched.color && Boolean(formik.errors.color) && (
                         <FormErrorMessage>
