@@ -35,8 +35,8 @@ export default function ShopHub() {
         </div>
       </div>
 
-      <PricingTable />
       <WorkingProcess />
+      <PricingTable />
       <ContactForm />
 
       <Footer />
