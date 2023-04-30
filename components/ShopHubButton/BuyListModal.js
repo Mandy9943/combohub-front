@@ -24,6 +24,8 @@ import { BsPlusLg } from "react-icons/bs";
 import { HiMinus } from "react-icons/hi";
 import * as Yup from "yup";
 
+import { deleteCookie, getCookie, setCookie } from "cookies-next";
+import { useEffect } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -83,6 +85,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
         });
       }
       onClose();
+      deleteCookie("shophub-data");
     },
   });
 
@@ -101,6 +104,21 @@ const BuyListModal = ({ isOpen, onClose }) => {
     }
   };
 
+  useEffect(() => {
+    if (formik.values.clientName || formik.values.clientPhone) {
+      setCookie("shophub-data", JSON.stringify(formik.values));
+    } else {
+      console.log("load cookie");
+      if (getCookie("shophub-data")) {
+        console.log("cookie exist");
+        const formData = JSON.parse(getCookie("shophub-data"));
+        console.log("formData", formData);
+        formik.setValues({
+          ...formData,
+        });
+      }
+    }
+  }, [formik.values]);
   return (
     <Modal onClose={onClose} isOpen={isOpen} bg="red" size={"2xl"}>
       <ModalOverlay background={"rgba(0,0,0,0.7)"} />
@@ -123,6 +141,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                 <FormLabel> Nombre</FormLabel>
                 <Input
                   type="text"
+                  value={formik.values.clientName}
                   onChange={formik.handleChange}
                   name={`clientName`}
                 />
@@ -143,6 +162,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                 <FormLabel>Teléfono</FormLabel>
                 <Input
                   type="text"
+                  value={formik.values.clientPhone}
                   onChange={formik.handleChange}
                   name={`clientPhone`}
                 />
@@ -173,6 +193,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                       <Input
                         type="text"
                         onChange={formik.handleChange}
+                        value={formik.values.productsList[index].link}
                         name={`productsList[${index}].link`}
                       />
                       {formik.touched.link && Boolean(formik.errors.link) && (
@@ -191,6 +212,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                       <Input
                         type="text"
                         onChange={formik.handleChange}
+                        value={formik.values.productsList[index].name}
                         name={`productsList[${index}].name`}
                       />
                       {formik.touched.name && Boolean(formik.errors.name) && (
@@ -207,6 +229,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                       <FormLabel>Talla</FormLabel>
                       <Input
                         type="text"
+                        value={formik.values.productsList[index].size}
                         onChange={formik.handleChange}
                         name={`productsList${index}.size`}
                       />
@@ -224,6 +247,7 @@ const BuyListModal = ({ isOpen, onClose }) => {
                       <FormLabel>Color</FormLabel>
                       <Input
                         type="text"
+                        value={formik.values.productsList[index].color}
                         onChange={formik.handleChange}
                         name={`productsList${index}.color`}
                       />
