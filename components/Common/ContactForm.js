@@ -1,5 +1,5 @@
 import { fetcher } from "@/utils/api";
-import baseUrl from "@/utils/baseUrl";
+import baseApiUrl from "@/utils/baseApiUrl";
 import { parseImagesUrls } from "@/utils/urls";
 import axios from "axios";
 import { useState } from "react";
@@ -11,10 +11,10 @@ const MySwal = withReactContent(Swal);
 
 const alertContent = () => {
   MySwal.fire({
-    title: "Congratulations!",
-    text: "Your message was successfully send and will back to you soon",
+    title: "Felicidades!",
+    text: "Su mensaje ha sido enviado con éxito",
     icon: "success",
-    timer: 2000,
+    timer: 3000,
     timerProgressBar: true,
     showConfirmButton: false,
   });
@@ -41,7 +41,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = `${baseUrl}/api/contact`;
+      const url = `${baseApiUrl}/api/01-contact-form`;
       const { name, email, number, subject, text } = contact;
       const payload = { name, email, number, subject, text };
       const response = await axios.post(url, payload);
