@@ -76,8 +76,9 @@ const WorkingProcess = () => {
                 <div className="choose-content">
                   <h3>Envía tu lista a ComboHub</h3>
                   <p>
-                    Manda tu lista completa a ComboHub por WhatsApp o a uno de
-                    sus proveedores para generar una orden de compra.
+                    Manda tu lista completa al formulario de ComboHub al hacer
+                    click en <b> Hacer lista de compra</b> para generar una
+                    orden de compra.
                   </p>
                 </div>
               </div>
