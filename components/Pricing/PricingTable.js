@@ -10,6 +10,7 @@ const PricingTable = () => {
             <h2>
               <b> Planes</b> asequibles
             </h2>
+
             <p>
               Descubre nuestros planes de envío y elige el que mejor se adapte a
               tus necesidades. ¡Envía tus productos a Cuba de forma rápida y
@@ -28,12 +29,8 @@ const PricingTable = () => {
               >
                 <h3>Básico</h3>
                 <div className="price">
-                  $100 <span>/ $500 de compra</span>
+                  $100 <span>/ compras hasta $599 de compra</span>
                 </div>
-                <p>
-                  Lorem ipsum dolor sit amet consetetur sadi scing elitr sed
-                  diam nonumy eirmod.
-                </p>
 
                 <ul className="pricing-list">
                   <li>
@@ -66,12 +63,8 @@ const PricingTable = () => {
               >
                 <h3>Avanzado</h3>
                 <div className="price">
-                  $130 <span>/ compras entre $600 y $1900</span>
+                  $130 <span>/ compras entre $600 y $1999</span>
                 </div>
-                <p>
-                  Lorem ipsum dolor sit amet consetetur sadi scing elitr sed
-                  diam nonumy eirmod.
-                </p>
 
                 <ul className="pricing-list">
                   <li>
@@ -93,7 +86,7 @@ const PricingTable = () => {
                 </ul>
 
                 <div className="most-popular">
-                  <span>Most Popular</span>
+                  <span>Más Popular</span>
                 </div>
               </div>
             </div>
@@ -108,12 +101,8 @@ const PricingTable = () => {
               >
                 <h3>Premium</h3>
                 <div className="price">
-                  $250 <span>/ compras superiores a $2000</span>{" "}
+                  $250 <span>/ compras de o superiores a $2000</span>{" "}
                 </div>
-                <p>
-                  Lorem ipsum dolor sit amet consetetur sadi scing elitr sed
-                  diam nonumy eirmod.
-                </p>
 
                 <ul className="pricing-list">
                   <li>
