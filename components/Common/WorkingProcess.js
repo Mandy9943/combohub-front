@@ -31,7 +31,7 @@ const WorkingProcess = () => {
                 <div className="choose-content">
                   <h3>Explora tiendas en línea</h3>
                   <p>
-                    Visita Shein, Termo o Amazon y busca productos usando
+                    Visita Shein, Temu o Amazon y busca productos usando
                     categorías y filtros. Si estás en Cuba, considera usar un
                     VPN para acceder a Shein.
                   </p>
