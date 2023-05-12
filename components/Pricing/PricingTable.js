@@ -69,7 +69,7 @@ const PricingTable = () => {
                 <ul className="pricing-list">
                   <li>
                     <i className="ri-check-fill"></i> El peso del producto se
-                    cobra a $7.
+                    cobra a $6.
                   </li>
 
                   <li>
@@ -107,7 +107,7 @@ const PricingTable = () => {
                 <ul className="pricing-list">
                   <li>
                     <i className="ri-check-fill"></i> El peso del producto se
-                    cobra a $7.
+                    cobra a $6.
                   </li>
 
                   <li>
