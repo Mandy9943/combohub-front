@@ -27,17 +27,20 @@ const PricingTable = () => {
                 data-aos-duration="1000"
                 data-aos-once="true"
               >
-                <h3>Básico</h3>
+                {/* <h3>Básico</h3>
                 <div className="price">
                   $100 <span>/ compras hasta $599 de compra</span>
-                </div>
+                </div> */}
 
                 <ul className="pricing-list">
                   <li>
                     <i className="ri-check-fill"></i> El peso del producto se
                     cobra a $7.
                   </li>
-
+                  <li>
+                    <i className="ri-check-fill"></i> Pequeño impuesto de
+                    comisión.
+                  </li>
                   <li>
                     <i className="ri-check-fill"></i> Sin cobro de envíos.
                   </li>
@@ -61,15 +64,19 @@ const PricingTable = () => {
                 data-aos-duration="1100"
                 data-aos-once="true"
               >
-                <h3>Avanzado</h3>
+                {/* <h3>Avanzado</h3>
                 <div className="price">
                   $130 <span>/ compras entre $600 y $1999</span>
-                </div>
+                </div> */}
 
                 <ul className="pricing-list">
                   <li>
                     <i className="ri-check-fill"></i> El peso del producto se
                     cobra a $6.
+                  </li>
+                  <li>
+                    <i className="ri-check-fill"></i> Pequeño impuesto de
+                    comisión.
                   </li>
 
                   <li>
@@ -99,17 +106,20 @@ const PricingTable = () => {
                 data-aos-duration="1200"
                 data-aos-once="true"
               >
-                <h3>Premium</h3>
+                {/* <h3>Premium</h3>
                 <div className="price">
                   $250 <span>/ compras de o superiores a $2000</span>{" "}
-                </div>
+                </div> */}
 
                 <ul className="pricing-list">
                   <li>
                     <i className="ri-check-fill"></i> El peso del producto se
                     cobra a $6.
                   </li>
-
+                  <li>
+                    <i className="ri-check-fill"></i> Pequeño impuesto de
+                    comisión.
+                  </li>
                   <li>
                     <i className="ri-check-fill"></i> Sin cobro de envíos.
                   </li>
