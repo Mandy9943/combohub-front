@@ -8,7 +8,7 @@ const PricingTable = () => {
           <div className="section-title">
             <span>Precios y envío transparentes</span>
             <h2>
-              <b> Planes</b> asequibles
+              <b> Plan</b> asequible
             </h2>
 
             <p>
@@ -35,7 +35,7 @@ const PricingTable = () => {
                 <ul className="pricing-list">
                   <li>
                     <i className="ri-check-fill"></i> El peso del producto se
-                    cobra a $7.
+                    cobra a $6 la libra.
                   </li>
                   <li>
                     <i className="ri-check-fill"></i> Pequeño impuesto de
@@ -56,7 +56,7 @@ const PricingTable = () => {
               </div>
             </div>
 
-            <div className="col-lg-4 col-md-6">
+            {/* <div className="col-lg-4 col-md-6">
               <div
                 className="single-pricing-card"
                 data-aos="fade-up"
@@ -64,10 +64,10 @@ const PricingTable = () => {
                 data-aos-duration="1100"
                 data-aos-once="true"
               >
-                {/* <h3>Avanzado</h3>
+                 <h3>Avanzado</h3>
                 <div className="price">
                   $130 <span>/ compras entre $600 y $1999</span>
-                </div> */}
+                </div> 
 
                 <ul className="pricing-list">
                   <li>
@@ -106,10 +106,10 @@ const PricingTable = () => {
                 data-aos-duration="1200"
                 data-aos-once="true"
               >
-                {/* <h3>Premium</h3>
+                <h3>Premium</h3>
                 <div className="price">
                   $250 <span>/ compras de o superiores a $2000</span>{" "}
-                </div> */}
+                </div> 
 
                 <ul className="pricing-list">
                   <li>
@@ -137,7 +137,8 @@ const PricingTable = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+              
+            </div> */}
           </div>
         </div>
 
